@@ -1,0 +1,8 @@
+@import '../../styles/variables.scss';
+
+.app-container {
+  font-family: $font-stack;
+  position: fixed;
+  bottom: 5rem;
+  right: 5rem;
+}

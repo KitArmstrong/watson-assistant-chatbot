@@ -1,0 +1,16 @@
+@import '../../styles/variables.scss';
+
+.chaticon {
+    background-color: $primaryAccentColour;
+    color: $primaryFrontColour;
+    border-radius: 25rem;
+    padding: 1rem;
+    transition-duration: 0.3s;
+    transition-property: transform;
+    transform: perspective(1px) translateZ(0);
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+}

@@ -2,29 +2,32 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { exampleAction } from '../../actions/exampleAction';
-import logo from '../../resources/images/logo.svg';
-import './App.css';
+import ChatIcon from '../ChatIcon/ChatIcon';
+import ChatWindow from '../ChatWindow/ChatWindow';
+import './App.scss';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      chatOpen: false
+    }
+  }
+
+  toggleChat = (chatOpen) => {
+    this.setState({chatOpen});
+  }
+
   render() {
+    const display = this.state.chatOpen ? 
+      <ChatWindow toggleChat={this.toggleChat} /> : 
+      <ChatIcon toggleChat={this.toggleChat} />
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="app-container">
+        {display}
       </div>
-    );
+    )
   }
 }
 
